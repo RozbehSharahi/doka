@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+SCRIPT_PATH="$( cd "$(dirname "$0")" || exit >/dev/null 2>&1 ; pwd -P )"
+cd "$SCRIPT_PATH" || exit
+
+if [[ ! -f ./../.doka.env ]] ; then
+    echo 'You must define a .doka.env on your projects root. Even if it is empty!'
+    echo "Use this command: touch $SCRIPT_PATH/../.doka.env"
+    exit
+fi
+
+# Set doka leve .doka.env vars
+set -o allexport
+source .doka.env
+set +o allexport
+
+# Set project level .doka.env vars
+set -o allexport
+source ./../.doka.env
+set +o allexport
+
+docker-compose "$@"

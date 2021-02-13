@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  doka-app:
+    build:
+      context: .
+      dockerfile: docker/php-apache/Dockerfile
+      args:
+        - APACHE_DOCUMENT_ROOT=${DOKA_APP_APACHE_DOCUMENT_ROOT}
+    volumes:
+      - './../:/var/www/html'
+    ports:
+      - '8000:80'
+  doka-mysql:
+    build: docker/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '13306:3306'
+
