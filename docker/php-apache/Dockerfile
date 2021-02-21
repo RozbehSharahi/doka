@@ -3,6 +3,7 @@ FROM php:7.4.15-apache
 ARG HOST_USER_ID
 
 RUN usermod --non-unique --uid $HOST_USER_ID www-data
+RUN a2enmod rewrite
 
 ARG APACHE_DOCUMENT_ROOT
 ENV APACHE_DOCUMENT_ROOT $APACHE_DOCUMENT_ROOT
