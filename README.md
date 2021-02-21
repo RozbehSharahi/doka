@@ -24,6 +24,6 @@ Run any `docker-compose` commands like this: `doka/compose up -d` or run `doka/e
 
 ## Good to know
 
-Set on your `.doka.env` APACHE_DOCUMENT_ROOT and rebuild `doka/build` in order to configure your document root.
+Set on your `.doka.env` `APACHE_DOCUMENT_ROOT=/your/path/` and rebuild `doka/build` in order to configure your document root.
 
 See on `doka/.doka.env` what variables you might set. Your project level `.doka.env` will override these env variables as soon as they are declared.
