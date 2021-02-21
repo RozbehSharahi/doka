@@ -6,15 +6,16 @@ services:
       dockerfile: docker/php-apache/Dockerfile
       args:
         - APACHE_DOCUMENT_ROOT=${DOKA_APP_APACHE_DOCUMENT_ROOT}
+        - HOST_USER_ID=${DOKA_HOST_USER_ID}
     volumes:
       - './../:/var/www/html'
     ports:
-      - '8000:80'
+      - '${DOKA_APP_HOST_PORT}:80'
   doka-mysql:
     build: docker/mysql
     environment:
       MYSQL_ROOT_HOST: '%'
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ${DOKA_MYSQL_ROOT_PASSWORD}
     ports:
-      - '13306:3306'
+      - '${DOKA_MYSQL_HOST_PORT}:3306'
 
