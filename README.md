@@ -18,6 +18,8 @@ Create a file `.doka.env` on your project directory, where doka is placed.
 
 Checkout `doka/.doka.env` to see what options you can override.
 
+Note: You can also create a `.doka.local.env` which you add to gitignore in order to have local settings. This is useful to configure your XDEBUG client host for instance.
+
 ## Now you can
 
 Run any `docker-compose` commands like this: `doka/compose up -d` or run `doka/enter-app` to enter the cli as `www-data` user.

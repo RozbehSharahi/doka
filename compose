@@ -19,4 +19,11 @@ set -o allexport
 source ./../.doka.env
 set +o allexport
 
+if [[ -f ./../.doka.local.env ]] ; then
+  echo "Local doka env found"
+  set -o allexport
+  source ./../.doka.local.env
+  set +o allexport
+fi
+
 docker-compose "$@"
