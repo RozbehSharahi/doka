@@ -24,3 +24,8 @@ RUN apt-get update && \
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
 RUN apt-get update && apt-get install -y mariadb-client
+
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
+RUN apt-get update && apt-get install -y iputils-ping && apt-get install -y telnet && apt-get install -y iproute2

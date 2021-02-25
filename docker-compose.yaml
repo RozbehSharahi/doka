@@ -7,6 +7,11 @@ services:
       args:
         - APACHE_DOCUMENT_ROOT=${DOKA_APP_APACHE_DOCUMENT_ROOT}
         - HOST_USER_ID=${DOKA_HOST_USER_ID}
+    environment:
+      - XDEBUG_MODE=${DOKA_APP_XDEBUG_MODE}
+      - XDEBUG_CONFIG=client_host=${DOKA_APP_XDEBUG_CLIENT_HOST} client_port=${DOKA_APP_XDEBUG_CLIENT_PORT}
+      - XDEBUG_SESSION=1
+      - PHP_IDE_CONFIG=serverName=doka-app
     volumes:
       - './../:/var/www/html'
     ports:
