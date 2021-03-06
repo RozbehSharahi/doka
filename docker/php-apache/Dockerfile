@@ -4,6 +4,7 @@ ARG HOST_USER_ID
 
 RUN usermod --non-unique --uid $HOST_USER_ID www-data
 RUN a2enmod rewrite
+RUN chown -R www-data:root /var/www
 
 ARG APACHE_DOCUMENT_ROOT
 ENV APACHE_DOCUMENT_ROOT $APACHE_DOCUMENT_ROOT
