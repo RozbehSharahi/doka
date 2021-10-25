@@ -30,3 +30,13 @@ RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
 
 RUN apt-get update && apt-get install -y iputils-ping && apt-get install -y telnet && apt-get install -y iproute2
+
+RUN apt-get install -y libzip-dev zip && docker-php-ext-install zip
+
+RUN apt-get update && apt-get install curl && curl -sL https://deb.nodesource.com/setup_14.x | bash
+RUN apt-get install nodejs
+RUN npm install --global yarn
+
+RUN apt-get install -y libjpeg-dev libpng-dev libfreetype6-dev libwebp-dev
+RUN docker-php-ext-configure gd --with-jpeg --with-freetype
+RUN docker-php-ext-install gd
