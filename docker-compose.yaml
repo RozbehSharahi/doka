@@ -3,7 +3,7 @@ services:
   doka-app:
     build:
       context: .
-      dockerfile: docker/php-apache/Dockerfile
+      dockerfile: docker/php${DOKA_APP_PHP_VERSION}-apache/Dockerfile
       args:
         - APACHE_DOCUMENT_ROOT=${DOKA_APP_APACHE_DOCUMENT_ROOT}
         - HOST_USER_ID=${DOKA_HOST_USER_ID}
