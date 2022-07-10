@@ -31,15 +31,13 @@ user.
 This README will not cover all possible configurations. In order to see what can be configured, or what can be improved
 you can check out .doka.env and documentations of the underlying docker images.
 
----
-**NOTE**
-Please consider that for some settings running `doka/build` is needed.
----
+
+> Please consider that for some settings running `doka/build` is needed.
 
 However, here are some possible configurations.
 
----
-**App configuration (example: PHP and XDEBUG configuration)**  
+### App configuration (example: PHP and XDEBUG configuration)
+
 ```
 DOKA_APP_PHP_VERSION=8
 DOKA_APP_HOST_PORT=8080
@@ -47,7 +45,6 @@ DOKA_APP_XDEBUG_MODE=off
 DOKA_APP_XDEBUG_CLIENT_HOST=0.0.0.0
 DOKA_APP_XDEBUG_CLIENT_PORT=9003
 ```
----
 
 ## Good to know
 
