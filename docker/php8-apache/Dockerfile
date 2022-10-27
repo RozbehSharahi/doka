@@ -41,5 +41,10 @@ RUN apt-get install -y libjpeg-dev libpng-dev libfreetype6-dev libwebp-dev
 RUN docker-php-ext-configure gd --with-jpeg --with-freetype
 RUN docker-php-ext-install gd
 
+RUN apt-get update && apt-get install -y \
+    imagemagick libmagickwand-dev --no-install-recommends \
+    && pecl install imagick \
+    && docker-php-ext-enable imagick
+
 RUN sed -i 's/memory_limit\s*=.*/memory_limit=1024M/g' "$PHP_INI_DIR/php.ini-development"
 RUN mv "$PHP_INI_DIR/php.ini-development" "$PHP_INI_DIR/php.ini"
